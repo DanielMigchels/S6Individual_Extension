@@ -6,11 +6,11 @@
       <table style="width:50%">
         <tr>
           <td>Front-End</td>
-          <td>1.0.0.0</td>
+          <td>{{ frontersion }}</td>
         </tr>
         <tr>
           <td>Back-End</td>
-          <td>{{ version }}</td>
+          <td>{{ backVersion }}</td>
         </tr>
       </table>
     </center>
@@ -18,17 +18,19 @@
 </template>
 
 <script>
+import { version } from '../manifest.json';
 import { versionService } from '../services/version.service.js';
 
 export default {
   data() {
     return {
       vuelogo: '../assets/logo.png',
-      version: 'Unknown',
+      frontersion: version,
+      backVersion: 'Unknown',
     };
   },
   created() {
-    versionService.GetVersion().then(data => (this.version = data.Data.Version));
+    versionService.GetVersion().then(data => (this.backVersion = data.Data.Version));
   },
   methods: {},
 };

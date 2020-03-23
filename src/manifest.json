@@ -1,7 +1,7 @@
 {
-  "name": "s6individual_extension",
+  "name": "FakeNews Extension",
   "description": "A Vue.js web extension",
-  "version": "1.0.0.0",
+  "version": "1.0.2.0",
   "manifest_version": 2,
   "icons": {
     "48": "icons/icon_48.png",
@@ -11,7 +11,7 @@
     "logo": "assets/logo.png"
   },
   "browser_action": {
-    "default_title": "s6individual_extension",
+    "default_title": "FakeNews Extension",
     "default_popup": "popup/popup.html"
   },
   "background": {

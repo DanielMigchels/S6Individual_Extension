@@ -1,2 +1,3 @@
 global.browser = require('webextension-polyfill');
-alert('Hello world!');
+
+alert('Thank you for installing the FakeNews Extension! :)');
