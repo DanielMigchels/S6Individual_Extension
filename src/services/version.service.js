@@ -10,7 +10,7 @@ function GetVersion() {
     },
   };
 
-  return fetch('http://danielmigchels.kn01.fhict.nl/userservice', requestOptions).then(handleResponse);
+  return fetch('http://danielmigchelsuserservice.kn01.fhict.nl/', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
