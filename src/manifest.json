@@ -3,6 +3,7 @@
   "description": "A Vue.js web extension",
   "version": "1.0.2.0",
   "manifest_version": 2,
+  "permissions": ["activeTab"],
   "icons": {
     "48": "icons/icon_48.png",
     "128": "icons/icon_128.png"
@@ -14,11 +15,14 @@
     "default_title": "FakeNews Extension",
     "default_popup": "popup/popup.html"
   },
-  "background": {
-    "scripts": ["background.js"]
-  },
   "options_ui": {
     "page": "options/options.html",
     "chrome_style": true
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["background.js"]
+    }
+  ]
 }

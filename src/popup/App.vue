@@ -1,19 +1,17 @@
 <template>
   <div id="popup">
-    <img alt="Vue logo" :src="vuelogo" />
-    <h1>Vue Front-End</h1>
-    <center>
-      <table style="width:50%">
-        <tr>
-          <td>Front-End</td>
-          <td>{{ frontersion }}</td>
-        </tr>
-        <tr>
-          <td>Back-End</td>
-          <td>{{ backVersion }}</td>
-        </tr>
-      </table>
-    </center>
+    <h1>FakeNews Extention</h1>
+    <div v-if="State == 0">
+      <button class="btn btn-primary" @click="SetState(1)">Sign in</button>
+      <button class="btn btn-primary" @click="SetState(2)">Disable on this site</button>
+    </div>
+    <div v-if="State == 1">
+      <button class="btn btn-primary" @click="SetState(0)">Back</button>
+    </div>
+    <div v-if="State == 2">
+      <h2>Site is enabled.</h2>
+      <button class="btn btn-primary" @click="SetState(0)">Back</button>
+    </div>
   </div>
 </template>
 
@@ -27,22 +25,16 @@ export default {
       vuelogo: '../assets/logo.png',
       frontersion: version,
       backVersion: 'Unknown',
+      State: 0,
     };
   },
   created() {
     versionService.GetVersion().then(data => (this.backVersion = data.Data.Version));
   },
-  methods: {},
+  methods: {
+    SetState(state) {
+      this.State = state;
+    },
+  },
 };
 </script>
-
-<style lang="scss" scoped>
-#popup {
-  width: 250px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>
