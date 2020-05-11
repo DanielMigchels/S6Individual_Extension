@@ -9,7 +9,7 @@ function AddArticle(siteId, uri) {
     body: JSON.stringify({ siteId, uri }),
   };
 
-  return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/article/article`, requestOptions).then(handleResponse);
+  return fetch(HostService.GetHost() + `/article/article`, requestOptions).then(handleResponse);
 }
 
 function getToken() {
