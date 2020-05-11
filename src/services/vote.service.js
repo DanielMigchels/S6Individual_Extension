@@ -9,7 +9,7 @@ function AddVote(articleId, rating) {
     body: JSON.stringify({ articleId, rating }),
   };
 
-  return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/vote/vote/`, requestOptions).then(handleResponse);
+  return fetch(HostService.GetHost() + `/vote/vote/`, requestOptions).then(handleResponse);
 }
 
 function getToken() {
