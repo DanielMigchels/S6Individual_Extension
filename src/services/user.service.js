@@ -1,3 +1,5 @@
+import { HostService } from './host.service.js';
+
 export const userService = {
   login,
   register,
