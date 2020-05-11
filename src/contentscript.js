@@ -2,11 +2,13 @@
   Fake News Extension
 */
 
+import { HostService } from './services/host.service.js';
+
 var siteId = 0;
 var articleId = 0;
 
 function InitializeArticle() {
-  var sendurl = 'https://daniel.floris.amsterdam/site/site/';
+  var sendurl = HostService.GetHost() + '/site/site/';
 
   chrome.runtime.sendMessage(
     {
@@ -33,7 +35,7 @@ function InitializeArticle() {
 }
 
 function CheckIfArticle(url) {
-  var sendurl = 'https://daniel.floris.amsterdam/article/article?url=' + encodeURIComponent(url);
+  var sendurl = HostService.GetHost() + '/article/article?url=' + encodeURIComponent(url);
 
   chrome.runtime.sendMessage(
     {
@@ -56,7 +58,7 @@ function CheckIfArticle(url) {
 }
 
 function GetVoterScore() {
-  var sendurl = 'https://daniel.floris.amsterdam/vote/vote/' + articleId;
+  var sendurl = HostService.GetHost() + '/vote/vote/' + articleId;
 
   chrome.runtime.sendMessage(
     {
