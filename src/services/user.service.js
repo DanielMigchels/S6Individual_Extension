@@ -12,7 +12,7 @@ function login(username, password) {
     body: JSON.stringify({ username, password }),
   };
 
-  return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/user/user/login`, requestOptions).then(handleResponse);
+  return fetch(HostService.GetHost() + `/user/user/login`, requestOptions).then(handleResponse);
 }
 
 function register(username, password) {
@@ -22,7 +22,7 @@ function register(username, password) {
     body: JSON.stringify({ username, password }),
   };
 
-  return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/user/user/register`, requestOptions).then(handleResponse);
+  return fetch(HostService.GetHost() + `/user/user/register`, requestOptions).then(handleResponse);
 }
 
 function logout() {
